@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Teste_CRUD.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Usuários";
+}
+
+<h1>Usuários cadastrados</h1>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                <a asp-controler="Usuarios" asp-action="Update" asp-route-id="@item.id" class="btn btn-outline-info btn-sm">Editar</a> &emsp;
+                <form asp-controler="Usuarios" asp-action="Delete" asp-route-id="@item.id" onclick="confirm('Deseja mesmo deletar o usuário @item.nome?')">
+                    <button type="submit" class="btn btn-outline-danger btn-sm">Deletar</button>
+                </form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success btn-sm">Criar novo usuário</a>
+</p>

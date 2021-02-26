@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Zell\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Zell\\.nuget\\packages"
+    ]
+  }
+}
